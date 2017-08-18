@@ -1,0 +1,7 @@
+shannon_blog_post:
+    resource: "@ShannonBlogBundle/Resources/config/routing/post.yml"
+    prefix:   /post
+
+shannon_blog_homepage:
+    path:     /
+    defaults: { _controller: ShannonBlogBundle:Default:index }

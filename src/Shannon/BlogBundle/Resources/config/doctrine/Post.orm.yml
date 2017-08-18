@@ -1,0 +1,22 @@
+Shannon\BlogBundle\Entity\Post:
+    type: entity
+    table: null
+    repositoryClass: Shannon\BlogBundle\Repository\PostRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        body:
+            type: text
+        publishedAt:
+            type: datetime
+            column: published_at
+        image:
+            type: blob
+    lifecycleCallbacks: {  }
