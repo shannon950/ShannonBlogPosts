@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+{% stylesheets '@AppBundle/Resources/public/css/styles.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+    <div id="wrapper">
+			<div id="header-image">
+				{% image '@AppBundle/Resources/public/images/header_image.jpg' %}
+				<img src="{{ asset_url }}" alt="banner" />
+				{% endimage %}
+			</div>
+			 <div id="welcome">
+                <h1><span>Blogs</h1>
+            </div>
+{% endblock %}

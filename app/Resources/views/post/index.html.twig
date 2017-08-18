@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% stylesheets '@AppBundle/Resources/public/css/styles.css' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+{% endstylesheets %}
+    <div id="wrapper">
+			<div id="header-image">
+				{% image '@AppBundle/Resources/public/images/header_image.jpg' %}
+				<img src="{{ asset_url }}" alt="banner" />
+				{% endimage %}
+			</div>
+			 <div id="welcome">
+                <h1><span>Blogs</h1>
+            </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Publishedat</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body }}</td>
+                <td>{% if post.publishedAt %}{{ post.publishedAt|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ post.image }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('post_show', { 'id': post.id }) }}">View Post</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+    </ul>
+{% endblock %}
